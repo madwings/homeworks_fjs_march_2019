@@ -1,0 +1,4 @@
+loomback 
+angular - tests
+karma test runner like mvn
+visual studio code
