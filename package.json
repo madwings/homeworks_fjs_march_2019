@@ -1,12 +1,12 @@
 {
-  "name": "frontend-javascript-january-2018-homeworks",
+  "name": "frontend-javascript-march-2019-homeworks",
   "version": "1.0.0",
-  "description": "Pragmatic Trainings",
+  "description": "Pragmatic LLC Trainings",
   "author": "Stiliyan Ivanov",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/madwings/homeworks_fjs_january_2018.git"
+    "url": "git+https://github.com/madwings/homeworks_fjs_march_2019"
   },
   "dependencies": {},
   "devDependencies": {
