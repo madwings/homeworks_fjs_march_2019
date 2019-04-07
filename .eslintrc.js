@@ -1,6 +1,13 @@
 module.exports = {
     "extends": "airbnb-base",
-    "plugins": [],
+    "env": {
+        "browser": true,
+        "es6": true,
+    },
+    "parserOptions": {
+        "ecmaVersion": 8,
+        "sourceType": "script"
+    },
     "rules": {
         "no-console": "off",
         "indent": ["error", 4, {
@@ -21,13 +28,5 @@ module.exports = {
             "functions": "never"
         }],
         "prefer-destructuring": "off"
-    },
-    "env": {
-        "browser": true,
-        "es6": true,
-    },
-    "parserOptions": {
-        "ecmaVersion": 8,
-        "sourceType": "script"
-    },
+    }
 };
