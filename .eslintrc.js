@@ -2,7 +2,7 @@ module.exports = {
     "extends": "airbnb-base",
     "env": {
         "browser": true,
-        "es6": true,
+        "es6": true
     },
     "parserOptions": {
         "ecmaVersion": 8,
@@ -27,6 +27,10 @@ module.exports = {
             "exports": "never",
             "functions": "never"
         }],
-        "prefer-destructuring": "off"
+        "prefer-destructuring": "off",
+        "space-unary-ops": ["warn", {
+              "words": false,
+              "nonwords": true
+        }]
     }
 };
