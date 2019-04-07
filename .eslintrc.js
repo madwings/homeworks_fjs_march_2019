@@ -1,8 +1,5 @@
 module.exports = {
     "extends": "airbnb-base",
-    "parserOptions": {
-
-    },
     "plugins": [],
     "rules": {
         "no-console": "off",
