@@ -5,14 +5,15 @@ module.exports = {
     },
     "plugins": [],
     "rules": {
-        "no-console": 0,
+        "no-console": "off",
         "indent": ["error", 4, {
             "MemberExpression": 1,
             "SwitchCase": 1
         }],
         "no-tabs": "off",
-        "camelcase": [2, {"properties": "always"}],
-
+        "camelcase": ["error", {
+            "properties": "always"
+        }],
         "import/prefer-default-export": "off",
         "no-use-before-define": "off",
         "comma-dangle": ["error", {
@@ -21,7 +22,8 @@ module.exports = {
             "imports": "never",
             "exports": "never",
             "functions": "never"
-        }]
+        }],
+        "prefer-destructuring": "off"
     },
     "env": {
         "browser": true,
