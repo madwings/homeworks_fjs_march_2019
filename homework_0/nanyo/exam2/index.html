@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<title>Exam 2</title>
+    	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="script.js"></script>
+	</head>
+	<body>
+		<div class="row pt-3">
+			<div class="col-4 offset-2">
+				<div id="intAlert" class="d-none alert alert-danger">
+  					The value in <span></span> field is NOT a number. Please fill in correctly.
+				</div>
+				<div class="form-group">
+					<label for="intNumberA">Integer Number A</label>
+					<input type="text" class="form-control" id="intNumberA">
+				</div>
+				<div class="form-group">
+					<label for="intNumberB">Integer Number B</label>
+					<input type="text" class="form-control" id="intNumberB">
+				</div>
+				<div id="intResult" class="d-none alert alert-info">
+					<span></span>
+				</div>
+				<button id="intCalc" class="btn btn-primary" onClick="intCalc()">Submit</button>
+			</div>
+			<div class="col-4">
+				<div id="floatAlert" class="d-none alert alert-danger">
+  					The value in <span></span> field is NOT a number. Please fill in correctly.
+				</div>
+				<div class="form-group">
+					<label for="floatNumberA">Float Number A</label>
+					<input type="text" class="form-control" id="floatNumberA">
+				</div>
+				<div class="form-group">
+					<label for="floatNumberB">Float Number B</label>
+					<input type="text" class="form-control" id="floatNumberB">
+				</div>
+				<div id="floatResult" class="d-none alert alert-info">
+					<span></span>
+				</div>
+				<button id="floatCalc" class="btn btn-primary" onClick="floatCalc()">Submit</button>
+			</div>
+		</div>
+	</body>
+</html>
