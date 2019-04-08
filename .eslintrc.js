@@ -5,7 +5,7 @@ module.exports = {
         "import"
     ],
     "settings": {
-        "html/indent": "+4",  // indentation is the <script> indentation plus four spaces.
+        "html/indent": "+4"  // indentation is the <script> indentation plus four spaces.
     },
     "env": {
         "browser": true,
@@ -22,7 +22,7 @@ module.exports = {
             "MemberExpression": 1,
             "SwitchCase": 1
         }],
-        "no-tabs": "off",
+        "no-tabs": "error",
         "camelcase": ["error", {
             "properties": "always"
         }],
