@@ -39,6 +39,7 @@ module.exports = {
         "space-unary-ops": ["warn", {
             "words": false,
             "nonwords": true
-        }]
+        }],
+        "linebreak-style": "off"
     }
 };
