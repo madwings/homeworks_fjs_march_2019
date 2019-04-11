@@ -1,8 +1,6 @@
-var firstNum = parseFloat(prompt('Enter a number: ').replace(',', '.'));
-var secondNum = parseFloat(prompt('Enter a number: ').replace(',', '.'));
-if (isNaN(firstNum)) {
-	console.log('First enter is not a number!');
-}
- else  (isNaN(secondNum)) 
-    console.log('Second enter is not number!');
-
+let firstNum = parseFloat(prompt("Please enter a number"));
+let seconNum = parseFloat(prompt("Please enter a number"));
+let newN = firstNum;
+firstNum = seconNum;
+seconNum = newN;
+console.log("Value of A =  " + firstNum + " and value of B = " + seconNum);
