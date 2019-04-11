@@ -1,0 +1,11 @@
+let a1 = parseFloat(prompt("Please enter a a1")); 
+let a2 = parseFloat(prompt("Please enter a a2")); 
+let a3 = parseFloat(prompt("Please enter a a3")); 
+let last = a1;
+a1 = a2;
+a2 = a3;
+a3 = last;     
+alert("a1: " + a1);    
+alert("a2: " + a2);
+alert("a3: " + a3);
+console.log('first: ' + a1 + ', second:' + a2 + ', third: ' + a3);
