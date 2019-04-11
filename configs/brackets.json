@@ -1,0 +1,23 @@
+{
+    "fonts.fontSize": "14px",
+    "fonts.fontFamily": "'SourceCodePro-Medium', ＭＳ ゴシック, 'MS Gothic', monospace",
+    "useTabChar": false,
+    "tabSize": 4,
+    "brackets-eslint.gutterMarks": true,
+    "brackets-eslint.useLocalESLint": false,
+    "linting.collapsed": true,
+    "linting.ESLint.collapsed": true,
+    "linting.JSLint.collapsed": false,
+    "styleActiveLine": false,
+    "highlightMatches": true,
+    "language": {
+        "javascript": {
+            "linting.prefer": [
+                "ESLint"
+            ],
+            "linting.usePreferredOnly": true
+        }
+    },
+    "noDistractions": false,
+    "spaceUnits": 4
+}

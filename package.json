@@ -1,0 +1,18 @@
+{
+  "name": "frontend-javascript-march-2019-homeworks",
+  "version": "1.0.0",
+  "description": "Pragmatic LLC Trainings",
+  "author": "Stiliyan Ivanov",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/madwings/homeworks_fjs_march_2019"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-html": "^5.0.3",
+    "eslint-plugin-import": "^2.16.0"
+  }
+}
