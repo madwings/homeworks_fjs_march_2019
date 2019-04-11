@@ -3,12 +3,12 @@ function calc() {
 	let money = parseFloat($("#money").val());
 	let isHealthy = $("#healthy").prop("checked");
 
-	if(isNaN(hour)) {
+	if(Number.isNaN(hour)) {
 		dangerAlert("A");
 		return;
 	}
 
-	if(isNaN(money)) {
+	if(Number.isNaN(money)) {
 		dangerAlert("B");
 		return;
 	}

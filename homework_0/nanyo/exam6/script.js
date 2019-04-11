@@ -3,17 +3,17 @@ function calc() {
 	let b = Number($("#numberB").val());
 	let c = Number($("#numberC").val());
 
-	if(isNaN(a)) {
+	if(Number.isNaN(a)) {
 		dangerAlert("A");
 		return;
 	}
 
-	if(isNaN(b)) {
+	if(Number.isNaN(b)) {
 		dangerAlert("B");
 		return;
 	}
 
-	if(isNaN(c)) {
+	if(Number.isNaN(c)) {
 		dangerAlert("C");
 		return;
 	}

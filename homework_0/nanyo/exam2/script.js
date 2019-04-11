@@ -2,12 +2,12 @@ function intCalc() {
 	let a = parseInt($("#intNumberA").val());
 	let b = parseInt($("#intNumberB").val());
 
-	if(isNaN(a)) {
+	if(Number.isNaN(a)) {
 		dangerAlert("A");
 		return;
 	}
 
-	if(isNaN(b)) {
+	if(Number.isNaN(b)) {
 		dangerAlert("B");
 		return;
 	}
