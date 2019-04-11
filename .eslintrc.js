@@ -1,8 +1,16 @@
 module.exports = {
     "extends": "airbnb-base",
+    "plugins": [
+        "html",
+        "import"
+    ],
+    "settings": {
+        "html/indent": "+4"  // indentation is the <script> indentation plus four spaces.
+    },
     "env": {
         "browser": true,
         "es6": true,
+        "jquery": true
     },
     "parserOptions": {
         "ecmaVersion": 8,
@@ -14,7 +22,7 @@ module.exports = {
             "MemberExpression": 1,
             "SwitchCase": 1
         }],
-        "no-tabs": "off",
+        "no-tabs": "error",
         "camelcase": ["error", {
             "properties": "always"
         }],
@@ -27,6 +35,11 @@ module.exports = {
             "exports": "never",
             "functions": "never"
         }],
-        "prefer-destructuring": "off"
+        "prefer-destructuring": "off",
+        "space-unary-ops": ["warn", {
+            "words": false,
+            "nonwords": true
+        }],
+        "linebreak-style": "off"
     }
 };

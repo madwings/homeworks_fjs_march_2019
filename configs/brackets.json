@@ -1,7 +1,7 @@
 {
     "fonts.fontSize": "14px",
     "fonts.fontFamily": "'SourceCodePro-Medium', ＭＳ ゴシック, 'MS Gothic', monospace",
-    "useTabChar": true,
+    "useTabChar": false,
     "tabSize": 4,
     "brackets-eslint.gutterMarks": true,
     "brackets-eslint.useLocalESLint": false,
@@ -19,5 +19,5 @@
         }
     },
     "noDistractions": false,
-    "spaceUnits": 2
+    "spaceUnits": 4
 }

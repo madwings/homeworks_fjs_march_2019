@@ -9,4 +9,4 @@ function test() {
         .bar
         .baz();
 }
-test();
+const func = ! test();
