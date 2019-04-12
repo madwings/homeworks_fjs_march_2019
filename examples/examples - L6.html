@@ -1,0 +1,22 @@
+<script>
+    'use strict';
+
+    function sortThreeNumbers(a, c, b) {
+        let result;
+        if (a >= b && b >= c) {
+            result = [a, b, c];
+        } else if (a >= c && c >= b) {
+            result = [a, c, b];
+        } else if (b >= a && a >= c) {
+            result = [b, a, c];
+        } else if (b >= c && c >= a) {
+            result = [b, c, a];
+        } else if (c >= a && a >= b) {
+            result = [c, a, b];
+        } else if (c >= b && b >= a) {
+            result = [c, b, a];
+        }
+
+        return result;
+    }
+</script>
