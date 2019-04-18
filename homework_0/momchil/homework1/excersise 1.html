@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    </head>
+    <body>
+        <script>  
+            let number1 = parseFloat(prompt("Please enter a number"));
+            let number2 = parseFloat(prompt("please enter a second number"));
+            let number3 = parseFloat(prompt("please enter a third number"));
+
+            if(isBetween(number1, number2, number3)) {
+                console.log(number3 + " is between " + number1 + " and " + number2)
+            } else {
+                console.log(number3 + " is out of the selected range")
+            }
+
+            function isBetween(n1 , n2 , n3) {
+                return n3 > n1 && n3 < n2;
+            }
+     </script>
+    </body>
+</html>
