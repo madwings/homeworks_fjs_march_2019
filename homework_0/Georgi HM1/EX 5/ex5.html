@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<title>Упражнение 5</title>
+    	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="js5.js"></script>
+	</head>
+	<body>
+		<div id="alert" class="d-none alert alert-danger">
+  			Напишете три числа.</br>
+			Те ще се наредят в низходящ ред.
+		</div>
+		</br>
+		<div class="form-group">
+			<label for="numberA">Числото A</label>
+			<input type="text" class="form-control" id="numberA">
+		</div>
+		<div class="form-group">
+			<label for="numberB">Числото B</label>
+			<input type="text" class="form-control" id="numberB">
+		</div>
+		<div class="form-group">
+			<label for="numberC">Числото C</label>
+			<input type="text" class="form-control" id="numberC">
+		</div>
+		<div id="result" class="d-none alert alert-info">
+			<span></span>
+		</div>
+		</br>
+			<button id="calc" class="btn btn-primary" onClick="calc()">Потвърди</button>
+	</body>
+</html>

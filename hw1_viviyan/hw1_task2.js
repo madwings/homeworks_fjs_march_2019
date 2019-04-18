@@ -1,0 +1,10 @@
+var num1Int = parseInt(prompt ('Enter first integer number A: '), 10);
+var num2Int = parseInt(prompt ('Enter second integer number B: '), 10);
+var sumInt = num1Int + num2Int;
+var subInt = num1Int - num2Int;
+var prodInt = num1Int * num2Int;
+var modInt = num1Int % num2Int;
+console.log(num1Int + ' + ' + num2Int + ' = ' + sumInt);
+console.log(num1Int + ' - ' + num2Int + ' = ' + subInt);
+console.log(num1Int + ' * ' + num2Int + ' = ' + prodInt);
+console.log(num1Int + ' % ' + num2Int + ' = ' + modInt);

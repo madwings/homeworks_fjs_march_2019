@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h1>JavaScript in the HTML page</h1>
+  <form>
+  <input type="text" id = "num1" name="numA" /> <br>
+   <input type="text" id = "num2" name="numB" /> <br>
+  <input type="text"  id = "num3" name="numC" /> <br>
+  <p>
+      Click the button to check if the number C is between A and B.
+      <button onclick="compareNum()">Compare C</button>
+      <p id="btn"></p>
+    </p>
+  
+</form>
+  <script>
+  let numA = document.getElementById("num1").values;
+  let numB = document.getElementById("num2").values;
+  let numC = document.getElementById("num3").values;
+ 
+  function compareNum(){
+    if (numC > numA && numC < numB){
+        console.log("The number C is between A and B");
+    }
+    else {
+        console.log("The number C is not between A and B");
+
+    }
+  
+  document.getElementsById("btn").values = compC;
+  }
+    
+    
+  </script>
+</body>
+</html>
