@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<title>Exam 7</title>
+    	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="script.js"></script>
+	</head>
+	<body>
+		<div class="row pt-3">
+			<div class="col-4 offset-4">
+				<div id="alert" class="d-none alert alert-danger">
+  					The value in <span></span> field is NOT a number. Please fill in correctly.
+				</div>
+				<div class="form-group">
+					<label for="hour">Hour</label>
+					<input type="text" class="form-control" id="hour">
+				</div>
+				<div class="form-group">
+					<label for="money">Money</label>
+					<input type="text" class="form-control" id="money">
+				</div>
+				<div class="custom-control custom-checkbox mb-3">
+  					<input type="checkbox" class="custom-control-input" id="healthy">
+  					<label class="custom-control-label" for="healthy">Is Healthy</label>
+				</div>
+				<div id="result" class="d-none alert alert-info">
+					<span></span>
+				</div>
+				<button id="calc" class="btn btn-primary" onClick="calc()">Submit</button>
+			</div>
+		</div>
+	</body>
+</html>
