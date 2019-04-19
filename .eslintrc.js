@@ -36,10 +36,7 @@ module.exports = {
             "functions": "never"
         }],
         "prefer-destructuring": "off",
-        "space-unary-ops": ["warn", {
-            "words": false,
-            "nonwords": true
-        }],
-        "linebreak-style": "off"
+        "linebreak-style": "off",
+        "no-plusplus": "off"
     }
 };

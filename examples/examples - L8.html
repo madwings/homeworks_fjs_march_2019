@@ -1,35 +1,32 @@
 <script>
-"use strict";
+    'use strict';
 
-// Max in a matrix
-let matrix = [
-  ['0.0', '0.1', '0.2'],
-  ['1.0', '1.1', '1.2'],
-  ['2.0', '2.1', '2.2']
-];
+    // Max in a matrix
+    const matrix = [
+        ['0.0', '0.1', '0.2'],
+        ['1.0', '1.1', '1.2'],
+        ['2.0', '2.1', '2.2'],
+    ];
 
-let max = +matrix[0][0];
-for (let i = 0; i < matrix.length; ++i) {
-	for (let j = 0; j < matrix[i].length; ++j) {
-		let temp = +matrix[i][j];
-		if (max < temp) {
-        	max = temp;
-		}
-	}
-}
-console.log(max);
-
-(function() {
     let max = +matrix[0][0];
-    matrix.map(row => 
-        row.map(element => {
-            element = +element;
-            if (max < element) {
-                max = element;
+    for (let i = 0; i < matrix.length; ++i) {
+        for (let j = 0; j < matrix[i].length; ++j) {
+            const temp = +matrix[i][j];
+            if (max < temp) {
+                max = temp;
             }
-        })
-    );
+        }
+    }
     console.log(max);
-})()
 
+    (function newMax() {
+        let maxNew = +matrix[0][0];
+        matrix.forEach(row => row.forEach((element) => {
+            const temp = +element;
+            if (maxNew < temp) {
+                maxNew = temp;
+            }
+        }));
+        console.log(maxNew);
+    }());
 </script>
