@@ -21,15 +21,12 @@ function countLetters() {
         }
     }
 
-
     let sortedKey = Object.keys(mappedArray).sort(function (a, b) { return mappedArray[b] - mappedArray[a] });
-
+    
     for (let i = 0; i < sortedKey.length; i++) {
 
         print = print + `${sortedKey[i]} -> ${mappedArray[sortedKey[i]]}` + "<br>";
-
     }
-
 
     printResults(print);
 

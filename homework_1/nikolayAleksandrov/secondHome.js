@@ -8,7 +8,6 @@ function countCamelCase() {
 
 }
 
-
 function getArrayOfChars(id) {
 
     let array = document.getElementById(id).value;
@@ -19,7 +18,6 @@ function getArrayOfChars(id) {
 
         return 0;
     }
-    return 0;
 }
 
 function checkArrayLengh(firstRangeNum, secRangeNumn, array) {

@@ -1,15 +1,12 @@
 'use strict';
 
 function print() {
-
-
+    
     let firstCompared = getArray('firtNum', ",");
 
     if (!checkNumberRange(1, 5, firstCompared.length)) {
         return;
     }
-
-
     let min = allSumExceptOne(firstCompared, 0);
     let max = allSumExceptOne(firstCompared, 0);
 

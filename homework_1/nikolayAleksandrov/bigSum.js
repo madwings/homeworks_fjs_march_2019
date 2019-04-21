@@ -20,22 +20,17 @@ function results() {
 
     for (let i = 0; i < arrayoFNumbers.length; i++) {
         let n1 = 0;
-
         n1 = +arrayoFNumbers[i];
-
         let isZero = (n1 == 0);
 
         if (isNumber(n1) && !isZero) {
-
             sum = sum + n1;
             countElement++;
         }
 
         if (countElement >= n) {
-
             break;
         }
-
 
     }
     printResults(sum);

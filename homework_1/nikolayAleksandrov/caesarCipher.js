@@ -35,11 +35,9 @@ function encryptText(n, text, k) {
     let num = 0;
     for (let i = 0; i <= n; i++) {
 
-
         num = getAsciCodeIfzReached(text[i]);
 
         if (isContainLetter(text[i])) {
-
             encryptext = encryptext + String.fromCharCode(num + k);
         } else {
             encryptext = encryptext + (text[i]);
