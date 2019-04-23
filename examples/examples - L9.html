@@ -1,0 +1,199 @@
+<script>
+    'use strict';
+
+    function xor(a, b) {
+        return new Boolean((a || b) && ! (a && b)).valueOf();
+    }
+    console.log(xor(1, 1));
+    console.log(xor(0, 1));
+    console.log(xor(1, 0));
+    console.log(xor(0, 0));
+
+    function sortThreeNumbers(a, b, c) {
+        let result;
+        if (a >= b && b >= c) {
+            result = [a, b, c];
+        } else if (a >= c && c >= b) {
+            result = [a, c, b];
+        } else if (b >= a && a >= c) {
+            result = [b, a, c];
+        } else if (b >= c && c >= a) {
+            result = [b, c, a];
+        } else if (c >= a && a >= b) {
+            result = [c, a, b];
+        } else if (c >= b && b >= a) {
+            result = [c, b, a];
+        }
+
+        return result;
+    }
+
+    function testSortThreeNumbers() {
+        const testSamples = [[1, 2, 3], [3, 2, 1], [3, 1, 2], [1, 1, 2], [1, 2, 1], [2, 1, 1], [1, 1, 1]];
+        const testResults = [[3, 2, 1], [3, 2, 1], [3, 2, 1], [2, 1, 1], [2, 1, 1], [2, 1, 1], [1, 1, 1]];
+        for (let test in testSamples) {
+            if (testSamples.hasOwnProperty(test)) {
+                let result = sortThreeNumbers(...testSamples[test]);
+                console.log(JSON.stringify(result) === JSON.stringify(testResults[test]), result, +test + 1);
+            }
+        }
+    }
+
+    testSortThreeNumbers();
+
+    function printName(firstName, lastName) {
+        console.log(arguments);
+        console.log('printName 2 arguments');
+        console.log(firstName, lastName);
+    }
+
+    function printName(firstName, lastName, age) {
+        console.log('printName 3 arguments');
+        console.log(firstName, lastName, age);
+    }
+
+    // printName('Gosho', 'Petrov');
+
+    function isPalindrome(str) {
+        let result = true;
+        for (let i = 0; i < str.length / 2; ++i) {
+            if (str[i] !== str[str.length - i - 1]) {
+                result = false;
+                break;
+            }
+        }
+
+        return result;
+    }
+
+    let result = isPalindrome('азобичаммачибоза');
+    console.log(result);
+
+    /*let f = function(x) {
+        return x * x;
+    };*/
+
+    function f1(x) {
+        return x * x;
+    }
+
+    // let resf = f(2);
+    let resf1 = f1(2);
+
+    // console.log(resf);
+    console.log(resf1);
+
+
+    // repeatIt(3, starsFunc);
+    // repeatIt(3, starsFunc);
+
+    function starsFunc(i) {
+        console.log("**".repeat(i))
+    };
+
+    function starsFunc1(i) {
+        console.log("**".repeat(i))
+    };;;;
+
+    function repeatIt(count, func) {
+        for (let i = 1; i <= count; ++i) {
+            func(i);
+        }
+    }
+
+    ;
+
+    (function (count) {
+        for (let i = 1; i <= count; i++) {
+            return [];
+        }
+    })(6);
+
+
+    function count(count) {
+        for (let i = 1; i <= count; i++) {
+            console.log('+'.repeat(i));
+        }
+    };
+
+    // count(6);
+
+    // let x = 0;
+    /*function f() {
+        console.log(++x);
+    }*/
+
+    // f();
+    // f();
+    // f();
+    // f();
+
+
+    let f = (function () {
+        let x = 0;
+        const y = 15;
+        x = y;
+        return function() { console.log(++x); }
+    })();
+
+    // f();
+    // f();
+    // f();
+    // f();
+
+
+    // let increment = x => {for (var y = 0; y < 5; ++y){}; (y) };
+    // console.log(increment(5))
+
+    function wordsUppercase([str]) {
+        let strUpper = str.toUpperCase();
+        let words = extractWords();
+        words = words.filter(w => w != '');
+        return words.join(', ');
+        function extractWords() { return strUpper.split(/\W+/); }
+    }
+
+    let x = wordsUppercase(['Hi, how are you?']);
+    console.log(x);
+
+
+    function test2([str, str1]) {
+        console.log(str, str1);
+    }
+
+    test2(["one test", "second test"]);
+    extractWords(['Hello functions']);
+
+
+    let incrementa = x => x + 1;
+
+
+    /*let increment = function(x) {
+        return x + 1;
+    }*/
+
+    console.log(increment(5));
+    console.log(incrementa(5));
+
+    function testNotArrow(x, y) {
+        for (let i = 1; i < y; ++i) {
+            x *= x;
+        }
+
+        return x;
+    }
+
+    let arrow = (x, y) => {
+        for (let i = 1; i < y; ++i) {
+            x *= x;
+        }
+
+        return x;
+    }
+
+    let arrow2 = (x, y) => ({a: x, z: y});
+
+    console.log(testNotArrow(2, 2));
+    console.log(arrow(2, 2));
+    console.log(arrow2(5, 15));
+</script>
