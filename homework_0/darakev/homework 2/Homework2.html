@@ -1,0 +1,152 @@
+<script>
+
+    // function for checking positive integers
+    function isPositiveInteger(number) {
+        let status = true;
+        if (!Number.isInteger(number) || Number(number) <= Number(0)) {
+            status = false;
+        }
+        return status;
+    }
+
+    // function for reading the array
+    function entryArrayData() {
+        let arrSize = Number(prompt("Enter size of the array:"));
+        let positiveInteger = isPositiveInteger(arrSize); //Calling the function for positive integers
+        if (positiveInteger) {
+            let Data = [];
+            for (var i = 0; i < arrSize; i++) {
+                Data[i] = Number(prompt("Enter a number:"));
+            }
+            console.log(Data);
+            return Data;
+        }
+        else {
+            alert('Please enter positive integer!!!');
+        }
+    }
+
+    //Problem 3: A Very Big Sum
+
+    function aVeryBigSum() {
+        let bigSumArray = entryArrayData(); // Calling the function for reading the array
+        let bigSum = 0;
+        let bigSumCounter = 0;
+        for (const bigSumKey of bigSumArray) {
+            //console.log(bigSumKey);
+            if (Number.isInteger(bigSumKey)) {
+                bigSumCounter += 1;
+                bigSum += bigSumKey;
+            }
+        }
+        //console.log('counter ' + bigSumCounter);
+        if (bigSumCounter == 0) {
+            console.log('Undefined result. Please enter integer numbers!');
+            alert('Undefined result. Please enter integer numbers!');
+        }
+        else if (bigSumCounter == bigSumData.length) {
+            console.log('The sum is = ' + bigSum);
+            alert('The sum is: ' + bigSum);
+        }
+        else {
+            console.log('The sum of integer numbers is = ' + bigSum);
+            alert('The sum of integer numbers is: ' + bigSum);
+        }
+    }
+
+    //Problem 4: Staircase
+
+    function staircase() {
+        // let staircaseResult = [];
+        // let n = Number(prompt("Enter size of the starircase and see the console:"));
+        // for (var row = 1; row <= n; row++) {
+        //     for (var column = 1; column <= row; column++) {
+        //         staircaseResult += '#';
+        //     }
+        //     staircaseResult += '\n';
+        // }
+        // console.log(staircaseResult);
+        let arr = [];
+        for (i = 0; i < 1; i++) {
+            arr.push(['#']);
+            for (j = 0; j < 3; j++) {
+                //arr[i][j] = '#';
+                console.log(arr[i]);
+            }
+            console.log(arr);
+        }
+
+    }
+
+
+    // Problem 5: Min-Max Sum
+
+    function minMaxSum() {
+
+        let minMaxArray = entryArrayData(); // Calling the function for reading the array
+        let minMaxCounter = 0;
+        let sum = Number(0);
+        let min = Number.MAX_VALUE;
+        let max = Number.MIN_VALUE;
+        for (const key of minMaxArray) {
+            //console.log(key);
+            if (isPositiveInteger(key)) {
+                sum += key;
+                minMaxCounter += 1;
+                if (key < min) {
+                    min = key;
+                }
+                else if (key > max) {
+                    max = key;
+                }
+            }
+        }
+        let minSum = sum - max;
+        let maxSum = sum - min;
+        if (minMaxCounter == 0) {
+            console.log('Undefined result. Please enter numbers!');
+            alert('Undefined result. Please enter numbers!');
+        }
+        else if (minMaxCounter == 1) {
+            console.log('minSum=maxSum = ' + sum);
+            alert('The minimum and maximum sum are equal: ' + sum);
+        }
+        else if (minMaxCounter == minMaxArray.length) {
+            console.log('minSum ' + minSum);
+            console.log('maxSum ' + maxSum);
+            alert('The minimum and maximum sum is respectively:    ' + minSum + '    ' + maxSum);
+        }
+        else {
+            console.log('minSum ' + minSum);
+            console.log('maxSum ' + maxSum);
+            alert('The minimum and maximum sum of the integer numbers is respectively:    ' + minSum + '    ' + maxSum);
+        }
+    }
+
+
+    //Problem 8: Find the Largest from Undefined Count of Numbers
+
+    function findTheLargestNumber() {
+
+        let largestArray = entryArrayData(); // Calling the function for reading the array
+        let largestNumber = largestArray[0];
+        //let largestCounter = 0;
+        //console.log(largestData);
+        console.log('largeNum ' + largestNumber);
+        for (const largestKey of largestArray) {
+            if ((!Number.isNaN(largestNumber)) && (Number(largestKey) > largestNumber)) {
+                largestNumber = Number(largestKey);
+                //largestCounter += 1;
+            }
+        }
+        //console.log('largest counter ' + largestCounter);
+        //if (Number.isNaN(largestNumber)) {
+        //console.log('Undefined result. Please enter numbers!');
+        //alert('Undefined result. Please enter numbers!');
+        //}
+        //else {
+        console.log('The largest number is: ' + largestNumber);
+        alert('The largest number is: ' + largestNumber);
+        //}
+    }
+</script>
