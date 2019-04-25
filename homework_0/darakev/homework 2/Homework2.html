@@ -57,24 +57,26 @@
     //Problem 4: Staircase
 
     function staircase() {
-        // let staircaseResult = [];
-        // let n = Number(prompt("Enter size of the starircase and see the console:"));
-        // for (var row = 1; row <= n; row++) {
-        //     for (var column = 1; column <= row; column++) {
-        //         staircaseResult += '#';
-        //     }
-        //     staircaseResult += '\n';
-        // }
-        // console.log(staircaseResult);
-        let arr = [];
-        for (i = 0; i < 1; i++) {
-            arr.push(['#']);
-            for (j = 0; j < 3; j++) {
-                //arr[i][j] = '#';
-                console.log(arr[i]);
+        let staircaseResult = [];
+        let n = Number(prompt("Enter size of the starircase and see the console:"));
+        let i = 0;
+        for (var row = 1; row <= n; row++) {
+            i++;
+            for (var column = 1; column <= row; column++) {
+                staircaseResult += ''.repeat(n - i) + '#';
             }
-            console.log(arr);
+            staircaseResult += '\n';
         }
+        console.log(staircaseResult);
+        // let arr = [];
+        // for (i = 0; i < 1; i++) {
+        //     arr.push(['#']);
+        //     for (j = 0; j < 3; j++) {
+        //         //arr[i][j] = '#';
+        //         console.log(arr[i]);
+        //     }
+        //     console.log(arr);
+        // }
 
     }
 
