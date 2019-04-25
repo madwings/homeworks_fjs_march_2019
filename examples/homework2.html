@@ -6,21 +6,21 @@ let b0 = 5, b1 = 6, b2 = 7;
 let aliceScore = 0;
 let bobScore = 0;
 if (a0 > b0) {
-	++aliceScore;
+    ++aliceScore;
 } else if (a0 < b0) {
-	++bobScore;
+    ++bobScore;
 }
 
 if (a1 > b1) {
-	++aliceScore;
+    ++aliceScore;
 } else if (a1 < b1) {
-	++bobScore;
+    ++bobScore;
 }
 
 if (a2 > b2) {
-	++aliceScore;
+    ++aliceScore;
 } else if (a2 < b2) {
-	++bobScore;
+    ++bobScore;
 }
 console.log(aliceScore, bobScore);
 
@@ -28,9 +28,9 @@ console.log(aliceScore, bobScore);
 let wordCount = 1;
 let s = 'testString';
 for (let ch of s) {
-	if (ch >= 'A' && ch <= 'Z') {
-		++wordCount;
-	}
+    if (ch >= 'A' && ch <= 'Z') {
+        ++wordCount;
+    }
 }
 console.log(wordCount);
 
@@ -38,7 +38,7 @@ console.log(wordCount);
 let ar = [1,2,3,4,5];
 let sum = 0;
 for (let i = 0; i < ar.length; ++i) {
-	sum += ar[i];
+    sum += ar[i];
 }
 console.log(sum);
 
@@ -102,19 +102,19 @@ let arr = [1,2,4,6,2];
 let min = Number.MAX_SAFE_INTEGER;
 let max = arr[0];
 for (let i = 0; i < 5; ++i) {
-	sum = 0;
-	for (let j = 0; j < 5; ++j) {
-		if (i !== j) {
-			sum += arr[j];
-		}
-	}
+    sum = 0;
+    for (let j = 0; j < 5; ++j) {
+        if (i !== j) {
+            sum += arr[j];
+        }
+    }
 
-	if (min > sum) {
-		min = sum;
-	}
-	if (max < sum) {
-		max = sum;
-	}
+    if (min > sum) {
+        min = sum;
+    }
+    if (max < sum) {
+        max = sum;
+    }
 }
 console.log(min, max);
 
@@ -127,22 +127,22 @@ let unicode;
 let next;
 let result = '';
 for (let value of string) {
-	unicode = value.charCodeAt();
-	if (unicode >= "97" && unicode <= "122") {
-		next = unicode + (key % 26);
-		if (next > 122) {
-			next -= 26;
-		}
-		result += String.fromCharCode(next);
-	} else if (unicode >= "65" && unicode <= "90") {
-		next = unicode + (key % 26);
-		if (next > 90) {
-			next -= 26;
-		}
-		result += String.fromCharCode(next);
-	} else {
-		result += value;
-	}
+    unicode = value.charCodeAt();
+    if (unicode >= "97" && unicode <= "122") {
+        next = unicode + (key % 26);
+        if (next > 122) {
+            next -= 26;
+        }
+        result += String.fromCharCode(next);
+    } else if (unicode >= "65" && unicode <= "90") {
+        next = unicode + (key % 26);
+        if (next > 90) {
+            next -= 26;
+        }
+        result += String.fromCharCode(next);
+    } else {
+        result += value;
+    }
 }
 
 console.log(result);
@@ -153,23 +153,23 @@ let temp = '';
 output = s;
 let reducing;
 do {
-	reducing = false;
-	for (let i = 0; i < output.length; ++i) {
-		if (i + 1 > output.length - 1 || output[i] !== output[i + 1]) {
-			temp += output[i];
-		} else {
-			reducing = true;
-			++i;
-		}
-	}
+    reducing = false;
+    for (let i = 0; i < output.length; ++i) {
+        if (i + 1 > output.length - 1 || output[i] !== output[i + 1]) {
+            temp += output[i];
+        } else {
+            reducing = true;
+            ++i;
+        }
+    }
 
-	if ( ! temp) {
-		output = "Empty String";
-		break;
-	} else {
-		output = temp;
-		temp = '';
-	}
+    if ( ! temp) {
+        output = "Empty String";
+        break;
+    } else {
+        output = temp;
+        temp = '';
+    }
 } while (reducing);
 console.log(output);
 
@@ -177,49 +177,49 @@ console.log(output);
 let array = [1, 2, -5, 10];
 max = array[0];
 for (let i = 0; i < array.length; ++i) {
-	if (max < array[i]) {
-		max = array[i];
-	}
+    if (max < array[i]) {
+        max = array[i];
+    }
 }
 console.log(max);
 
 // Task 9, partial
 function countLetters(word) {
-	let result = {};
+    let result = {};
 
-	for (let ch = 0; ch < word.length; ++ch) {
-		if (result[word[ch]] === undefined) {
-			result[word[ch]] = {count: 1, order: ch};
-		} else {
-			++result[word[ch]]['count'];
-		}
-	}
+    for (let ch = 0; ch < word.length; ++ch) {
+        if (result[word[ch]] === undefined) {
+            result[word[ch]] = {count: 1, order: ch};
+        } else {
+            ++result[word[ch]]['count'];
+        }
+    }
 
-	return result;
+    return result;
 }
 
 function assocToClassic(object) {
-	if ((object instanceof Array) || ! (object instanceof Object)) {
-		throw new TypeError('Object expected');
-	}
+    if ((object instanceof Array) || ! (object instanceof Object)) {
+        throw new TypeError('Object expected');
+    }
 
-	let result = [];
-	for (let value in object) {
-		result.push({name: value, count: object[value]['count'], order: object[value]['order']});
-	}
+    let result = [];
+    for (let value in object) {
+        result.push({name: value, count: object[value]['count'], order: object[value]['order']});
+    }
 
-	return result;
+    return result;
 }
 
 (function() {
-	try {
-		let wordTest = 'apple';
-		let result = countLetters(wordTest);
-		result = assocToClassic(result);
-		console.log(result);
-	} catch (e) {
-		console.log(e.message);
-	}
+    try {
+        let wordTest = 'apple';
+        let result = countLetters(wordTest);
+        result = assocToClassic(result);
+        console.log(result);
+    } catch (e) {
+        console.log(e.message);
+    }
 })();
 
 </script>
