@@ -1,0 +1,225 @@
+<script>
+"use strict";
+// Task 1
+let a0 = 5, a1 = 6, a2 = 7;
+let b0 = 5, b1 = 6, b2 = 7;
+let aliceScore = 0;
+let bobScore = 0;
+if (a0 > b0) {
+	++aliceScore;
+} else if (a0 < b0) {
+	++bobScore;
+}
+
+if (a1 > b1) {
+	++aliceScore;
+} else if (a1 < b1) {
+	++bobScore;
+}
+
+if (a2 > b2) {
+	++aliceScore;
+} else if (a2 < b2) {
+	++bobScore;
+}
+console.log(aliceScore, bobScore);
+
+// Task 2
+let wordCount = 1;
+let s = 'testString';
+for (let ch of s) {
+	if (ch >= 'A' && ch <= 'Z') {
+		++wordCount;
+	}
+}
+console.log(wordCount);
+
+// Task 3
+let ar = [1,2,3,4,5];
+let sum = 0;
+for (let i = 0; i < ar.length; ++i) {
+	sum += ar[i];
+}
+console.log(sum);
+
+// Task 4
+function staircase(n) {
+    // Complete this function
+    let output = "";
+    for (let i = n; i > 0; --i) {
+        for (let j = 1; j <= n; ++j) {
+            if (j < i) {
+                output += " ";
+            } else {
+                output += "#";
+            }
+        }
+        output += "\n";
+    }
+
+    console.log(output);
+}
+staircase(10);
+
+function staircase_1(n) {
+    // Complete this function
+    let output = "";
+    for (let i = 1; i <=n ; ++i) {
+        for (let j = n; j > 0; --j) {
+            if (j > i) {
+                output += " ";
+            } else {
+                output += "#";
+            }
+        }
+        output += "\n";
+    }
+
+    console.log(output);
+}
+staircase_1(10);
+
+function staircase_2(n) {
+    // Complete this function
+    let output = "";
+    for (let i = 1; i <=n ; ++i) {
+        for (let j = 1; j <= n; ++j) {
+            if (j <= n - i) {
+                output += " ";
+            } else {
+                output += "#";
+            }
+        }
+        output += "\n";
+    }
+
+    console.log(output);
+}
+staircase_2(10);
+
+// Task 5
+let arr = [1,2,4,6,2];
+let min = Number.MAX_SAFE_INTEGER;
+let max = arr[0];
+for (let i = 0; i < 5; ++i) {
+	sum = 0;
+	for (let j = 0; j < 5; ++j) {
+		if (i !== j) {
+			sum += arr[j];
+		}
+	}
+
+	if (min > sum) {
+		min = sum;
+	}
+	if (max < sum) {
+		max = sum;
+	}
+}
+console.log(min, max);
+
+// Task 6
+n = 10;
+let string = 'adada-asda';
+var key = 12;
+
+let unicode;
+let next;
+let result = '';
+for (let value of string) {
+	unicode = value.charCodeAt();
+	if (unicode >= "97" && unicode <= "122") {
+		next = unicode + (key % 26);
+		if (next > 122) {
+			next -= 26;
+		}
+		result += String.fromCharCode(next);
+	} else if (unicode >= "65" && unicode <= "90") {
+		next = unicode + (key % 26);
+		if (next > 90) {
+			next -= 26;
+		}
+		result += String.fromCharCode(next);
+	} else {
+		result += value;
+	}
+}
+
+console.log(result);
+
+// Task 7
+s = 'aabbcd';
+let temp = '';
+output = s;
+let reducing;
+do {
+	reducing = false;
+	for (let i = 0; i < output.length; ++i) {
+		if (i + 1 > output.length - 1 || output[i] !== output[i + 1]) {
+			temp += output[i];
+		} else {
+			reducing = true;
+			++i;
+		}
+	}
+
+	if ( ! temp) {
+		output = "Empty String";
+		break;
+	} else {
+		output = temp;
+		temp = '';
+	}
+} while (reducing);
+console.log(output);
+
+// Task 8
+let array = [1, 2, -5, 10];
+max = array[0];
+for (let i = 0; i < array.length; ++i) {
+	if (max < array[i]) {
+		max = array[i];
+	}
+}
+console.log(max);
+
+// Task 9, partial
+function countLetters(word) {
+	let result = {};
+
+	for (let ch = 0; ch < word.length; ++ch) {
+		if (result[word[ch]] === undefined) {
+			result[word[ch]] = {count: 1, order: ch};
+		} else {
+			++result[word[ch]]['count'];
+		}
+	}
+
+	return result;
+}
+
+function assocToClassic(object) {
+	if ((object instanceof Array) || ! (object instanceof Object)) {
+		throw new TypeError('Object expected');
+	}
+
+	let result = [];
+	for (let value in object) {
+		result.push({name: value, count: object[value]['count'], order: object[value]['order']});
+	}
+
+	return result;
+}
+
+(function() {
+	try {
+		let wordTest = 'apple';
+		let result = countLetters(wordTest);
+		result = assocToClassic(result);
+		console.log(result);
+	} catch (e) {
+		console.log(e.message);
+	}
+})();
+
+</script>

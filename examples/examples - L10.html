@@ -1,0 +1,42 @@
+<script>
+function isNumeric(x) {
+	return Number(x) == x;
+}
+
+function isNumeric(x) {
+	return +x == x;
+}
+function division(x) {
+    if ( ! isNumeric(x)) {
+		throw new TypeError('Number Expected');
+    } else if (x == 0) {
+        throw new Error('Division by zero.');
+    }
+	
+    return 1 / x;
+}
+
+try {
+    console.log(division(5));
+    console.log(division('string'));
+    console.log(division(0));
+} catch (e) {
+    console.log('Caught exception: ',  e.message);
+} finally {
+    console.log("Finally is always executed");
+}
+
+function countLetters1(word) {
+	let result = {};
+	
+	for (let ch of word) {
+		if (result[ch] === undefined) {
+			result[ch] = 1;
+		} else {
+			++result[ch];
+		}
+	}
+	
+	return result;
+}
+</script>
