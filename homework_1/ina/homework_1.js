@@ -52,3 +52,15 @@ function secondTask() {
     
     
 }
+
+
+// Third task - a very big sum
+let testArr = [1000000001, 1000000002, 1000000003, 1000000004, 1000000005];
+
+function aVeryBigSum(arr) {
+    let totalSum = arr.reduce(function (a, b) { return a + b; }, 0);
+    console.log(totalSum);
+}
+function thirdTask() {
+    aVeryBigSum(testArr);   
+}
