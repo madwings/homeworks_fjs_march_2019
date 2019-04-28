@@ -4,8 +4,10 @@ function printResults(anyThing) {
     document.getElementById('resultValue').innerHTML = anyThing;
 }
 
-function isNumber(num) {
-    if (isNaN(num)) {
+function isNumeric(num) {
+
+
+    if (isNaN(+num == num)) {
 
         return false;
 
@@ -13,9 +15,10 @@ function isNumber(num) {
     return true;
 }
 
-function isContainLetter(num) {
 
-    if (/[a-zA-Z]/.test(num)) {
+function isContainLetter(sequenceForCHeck) {
+
+    if (/[a-zA-Z]/.test(sequenceForCHeck)) {
         return true;
     }
     return false;
@@ -23,11 +26,11 @@ function isContainLetter(num) {
 
 function getNumber(id) {
 
-    const numb = document.getElementById(id).value;
+    let numb = document.getElementById(id).value;
 
-    if (isNumber(numb)) {
+    if (isNumeric(numb)) {
 
-        return numb;
+        return numb = +numb;
     }
     return 0;
 }
@@ -53,9 +56,28 @@ function checkNumberRange(firstRangeNum, secRangeNumn, num) {
 
 function getArray(id, spritValue) {
 
-    let array = document.getElementById(id).value;
+    let array = getString(id);
     return array.split(spritValue);
 }
+
+function getString(id) {
+
+    let sampleString = (document.getElementById(id).value);
+    sampleString = sampleString.trim().replace(" ", "");
+    sampleString = replacecSpace(sampleString);
+    return sampleString;
+}
+
+function replacecSpace(stringValue) {
+    let returnString = "";
+    for (let i = 0; i < stringValue.length; i++) {
+        if (stringValue[i].localeCompare(" ") != 0) {
+            returnString = returnString + stringValue[i];
+        }
+    }
+    return returnString;
+}
+
 
 function pow(x, n) {
     var result = x;
@@ -66,3 +88,9 @@ function pow(x, n) {
 
     return result;
 }
+
+function sortedArray(array) {
+    return array.sort(function (b, a) { return b - a });
+}
+
+
