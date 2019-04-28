@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Task 1</title>
+</head>
+<body>
+<script>
+	let bobArr = [10, 3, 20];
+	let aliceArr = [5, 3, 43];
+
+	let pointBob = 0;
+	let pointAlice = 0;
+	for(let i in bobArr) {
+		if(bobArr[i] > aliceArr[i])
+			pointBob++;
+		
+		if(bobArr[i] < aliceArr[i])
+			pointAlice++;
+		
+	}
+	
+	console.log(pointBob);
+	console.log(pointAlice);
+</script>
+</body>
+</html>

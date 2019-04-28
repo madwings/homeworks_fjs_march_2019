@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Task 4</title>
+</head>
+<body>
+<script>
+	let n = 6;
+	let drow = '';
+	
+	for(let i = 1; i <= n; i++) {
+		for(let space = n - i; space > 0; space--) {
+			drow += ' ';
+		}
+		for(let figure = 1; figure <= i; figure++) {
+			drow += '#'
+		}
+		console.log(drow);
+		drow = '';
+	}
+</script>
+</body>
+</html>
