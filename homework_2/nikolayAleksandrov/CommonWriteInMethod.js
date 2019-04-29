@@ -5,14 +5,23 @@ function printResults(anyThing) {
 }
 
 function isNumeric(num) {
-
-
     if (isNaN(+num == num)) {
-
+        
         return false;
-
     }
     return true;
+}
+
+function areAllNumeric(array) {
+    let areNumeric = true;
+    for (let i = 0; i < array.length; i++) {
+        if (isNumeric(array[i])) {
+            continue;
+        }
+        areNumeric = false;
+        break;
+    }
+    return areNumeric;
 }
 
 
