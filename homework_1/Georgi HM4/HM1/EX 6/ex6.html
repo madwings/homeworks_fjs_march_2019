@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<title>Упражнение 6</title>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="js6.js"></script>
+	</head>
+	<body>
+		<div id="alert" class="d-none alert alert-danger">
+  			Напишете три числа: А,В и С.</br>
+			Те ще се разменят така, че А да има стойността на В, В да има стойността на С, а С да има старата стойност на А.  
+		</div>
+		</br>
+		<div class="form-group">
+			<label for="numberA">Числото A</label>
+			<input type="text" class="form-control" id="numberA">
+		</div>
+		<div class="form-group">
+			<label for="numberB">Числото B</label>
+			<input type="text" class="form-control" id="numberB">
+		</div>
+		<div class="form-group">
+			<label for="numberC">Числото C</label>
+			<input type="text" class="form-control" id="numberC">
+		</div>
+		</br>
+		<button id="calc" class="btn btn-primary" onClick="calc()">Submit</button>
+	</body>
+</html>
