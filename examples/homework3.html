@@ -1,0 +1,99 @@
+<script>
+"use strict";
+// Task 3
+function countingValleys(n, s) {
+    let level = 0;
+    let valley = 0;
+    let below = false;
+    for (let step of s) {
+        if (step === 'U') {
+            ++level;
+        } else if (step === 'D') {
+            --level;
+        }
+        
+        if (level < 0 && ! below) {
+            below = true;
+        }
+        
+        if (level === 0 && below) {
+            below = false;
+            ++valley;
+        }
+    }
+    
+    return valley;
+}
+
+// Task 7
+function findDistance(x1, y1, x2, y2) {
+	return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+}
+function findPath(coordinates) {
+	let totalDistance = 0;
+	let output = '';
+	let distance12 = findDistance(coordinates.x1, coordinates.y1, coordinates.x2, coordinates.y2);
+	let distance23 = findDistance(coordinates.x2, coordinates.y2, coordinates.x3, coordinates.y3);
+	let distance13 = findDistance(coordinates.x1, coordinates.y1, coordinates.x3, coordinates.y3);
+
+	if (distance12 <= distance13 && distance23 <= distance13) {
+		totalDistance = distance12 + distance23;
+		output = `1->2->3: ${totalDistance}`;
+	} else if (distance12 <= distance23 && distance13 <= distance23) {
+		totalDistance = distance12 + distance13;
+		output = `2->1->3: ${totalDistance}`;
+	} else {
+		totalDistance = distance23 + distance13;
+		output = `1->3->2: ${totalDistance}`;
+	}
+
+	return output;
+}
+
+function setCoordinates(input) {
+	let obj = {};
+	let inputToArr = input.split(',');		
+	obj.x1 = Number(inputToArr[0].trim());
+	obj.y1 = Number(inputToArr[1].trim());
+	obj.x2 = Number(inputToArr[2].trim());
+	obj.y2 = Number(inputToArr[3].trim());
+	obj.x3 = Number(inputToArr[4].trim());
+	obj.y3 = Number(inputToArr[5].trim());
+
+	return obj;
+}
+
+function execute() {
+	try {
+		let input = '-1, -2, 3.5, 0, 0, 2';
+		let coordinates = setCoordinates(input);
+		let output = findPath(coordinates);	
+		console.log(output);
+	} catch(e) {
+		console.log(e.message);
+	}
+}
+execute();
+
+// Task 8
+function dnaHelix(length) {
+	if (length < 1) {
+		throw new Error('Length must be at least one');
+	}
+	
+	let squence = ['AT', 'CG', 'TT', 'AG', 'GG'];
+	let pattern = ['**12**', '*1--2*', '1----2', '*1--2*'];
+	let sequencePosition;
+	let patternPostion;
+	let result = '';
+	for (let i = 0; i < length; ++i) {
+		sequencePosition = i % 5;
+		patternPostion = i % 4;
+		result += pattern[patternPostion].replace('1', squence[sequencePosition][0]).replace('2', squence[sequencePosition][1]) + "\n"
+	}
+	
+	return result;
+}
+
+console.log(dnaHelix(10));
+</script>

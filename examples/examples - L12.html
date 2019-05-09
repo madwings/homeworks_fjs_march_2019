@@ -1,0 +1,261 @@
+<script>
+wordCount = 1;
+for (let z = 1; z < word.length; ++z) {
+	if (word[z] >= "A" && word[z] <= "Z") {
+		++wordCount;
+	}
+}
+
+console.log(wordCount);
+
+function countLetters1(word) {
+	let result = {};
+	
+	for (let ch of word) {
+		if (result[ch] === undefined) {
+			result[ch] = 1;
+		} else {
+			++result[ch];
+		}
+	}
+	
+	return result;
+}
+
+function formatLetters1(letterArray) {
+	let result = '';
+	for (let ch in letterArray) {
+		result += `${ch} -> ${letterArray[ch]['count']}\n`;
+	}
+	
+	return result;
+}
+
+function countLetters(word) {
+	let result = {};
+	
+	for (let ch = 0; ch < word.length; ++ch) {
+		if (result[word[ch]] === undefined) {
+			result[word[ch]] = {count: 1, order: ch};
+		} else {
+			++result[word[ch]]['count'];
+		}
+	}
+	
+	return result;
+}
+
+function assocToClassic(object) {
+	if ( ! (object instanceof Object)) {
+		throw new TypeError('Object expected');
+	}
+	
+	let result = [];
+	for (let value in object) {
+		result.push({name: value, count: object[value]['count'], order: object[value]['order']});
+	}
+	
+	return result;
+}
+
+function sortByAppearance(a, b) {
+	return a['order'] - b['order'];
+}
+
+function sortByCount(a, b) {
+	if (a['count'] === b['count']) {
+		result = a['order'] - b['order']
+	} else {
+		result = b['count'] - a['count'];
+	}
+	
+	return result; 
+}
+
+function sortByName(a, b) {
+	if (a['name'] < b['name']) {
+		result = -1;
+	} else if (a['name'] > b['name']) {
+		result = 1;
+	} else {
+		result = 0;
+	}
+	
+	return result; 
+}
+
+function formatLetters(letterArray) {
+	let result = '';
+	for (let ch in letterArray) {
+		result += `${letterArray[ch]['name']} -> ${letterArray[ch]['count']}\n`;
+	}
+	
+	return result;
+}
+
+function execute() {
+	try {
+		let wordTest = 'apple';
+		let result = countLetters(wordTest);
+		result = assocToClassic(result);
+		result.sort(sortByCount);
+		//result.sort(sortByAppearance);
+		//result.sort(sortByName);
+		result = formatLetters(result);
+		console.log(result);
+	} catch (e) {
+		console.log(e.message);
+	}
+}
+
+execute();
+
+//function indexOfCustom(array, needle, strict = true, startIndex = 0);
+/*
+if ( ! Array.prototype.indexOfCustom) {
+	Array.prototype.indexOfCustom = function(needle, strict = true, startIndex = 0) {
+		if (arguments.length < 1) {
+			throw Error('Insufficient number of arguments');
+		}
+		let result = -1;
+		for (let i = startIndex; i < this.length; ++i) {
+			if (strict === true && needle === this[i]) {
+				result = i;
+				break;
+			} else if (strict === false && needle == this[i]) {
+				result = i;
+				break;
+			}
+		}
+		
+		return result;
+	};
+}
+*/
+function indexOfCustom(array, needle, strict = true, startIndex = 0) {
+	if (arguments.length < 4) {
+		throw new Error('Insufficient number of arguments');
+	}
+	let result = -1;
+	for (let i = startIndex; i < array.length; ++i) {
+		if (strict === true && needle === array[i]) {
+			result = i;
+			break;
+		} else if (strict === false && needle == array[i]) {
+			result = i;
+			break;
+		}
+	}
+	
+	return result;
+}
+
+
+function sortThreeNumbers(a, c, b) {
+	let result;
+	if (a >= b && b >= c) {
+		result = [a, b, c];
+	} else if (a >= c && c >= b) {
+		result = [a, c, b];
+	} else if (b >= a && a >= c) { 
+		result = [b, a, c];
+	} else if (b >= c && c >= a) {
+		result = [b, c, a];
+	} else if (c >= a && a >= b) { 
+		result = [c, a, b];
+	} else if (c >= b && b >= a) { 
+		result = [c, b, a];
+	}
+	
+	return result;
+}
+function testSortThreeNumbers() {
+	let test_samples = [[1,2,3], [3,2,1], [3,1,2], [1,1,2], [1,2,1], [2,1,1], [1,1,1]];
+	let test_results = [[3,2,1], [3,2,1], [3,2,1], [2,1,1], [2,1,1], [2,1,1], [1,1,1]];
+	for (let test in test_samples) {
+		if (test_samples.hasOwnProperty(test)) {
+			let result = sortThreeNumbers(...test_samples[test]);
+			console.log(JSON.stringify(result) === JSON.stringify(test_results[test]), test);
+		}
+	}
+}
+
+testSortThreeNumbers();
+
+function countStringInText([str, text]) {
+	let count = 0;
+	let index = text.indexOf(str);
+	while (index > -1) {
+		++count;
+		index = text.indexOf(str, index + 1);
+	}
+
+	return count;
+}
+
+function countStringInTextDo([str, text]) {
+	let count = 0;
+	let index = 0;
+	do {
+		if ((index = text.indexOf(str, index)) !== - 1) {
+			++count;
+			++index;
+		}
+	} while (index > -1);
+	
+	return count;
+}
+
+function countStringInTextDo1([str, text]) {
+	let count = 0;
+	let index = 0;
+	do {
+		(index = text.indexOf(str, index)) !== - 1 ? ++count && ++index : -1;
+	} while (index > -1);
+	
+	return count;
+}
+
+console.log(countStringInText(['am', 'I am cool. Bam am']));
+console.log(countStringInTextDo(['am', 'I am cool. Bam I am']));
+console.log(countStringInTextDo1(['am', 'I  am cool. Bam I am']));
+
+function factorial(n) {
+	if (n < 0) {
+		throw new RangeError('Invalid input');
+	}
+	
+	let result = 1;
+	for (let i = 2; i <=n; ++i) {
+		result *= i;
+	}
+	
+	return result;
+}
+
+function factorialR(n) {
+	let result;
+	if (n < 0) {
+		throw new RangeError('Invalid input');
+	} else if (n < 2) {
+		result = 1;
+	} else {
+		result = n * factorialR(n - 1);
+	}
+	
+	return result;
+}
+
+function towerOfHanoi(n, src, dest, aux) {
+	if (n == 1) {
+		console.log(`Move disk ${n} from ${src} to ${dest}`);
+	} else {
+		towerOfHanoi(n - 1, src, aux, dest);
+		console.log(`Move disk ${n} from ${src} to ${dest}`);
+		towerOfHanoi(n - 1, aux, dest, src);
+	}
+}
+towerOfHanoi(3, 'A', 'C', 'B');
+console.log(factorial(6));
+console.log(factorialR(6));
+</script>
