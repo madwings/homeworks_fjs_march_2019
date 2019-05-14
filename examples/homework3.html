@@ -1,5 +1,24 @@
 <script>
 "use strict";
+// Task 1
+function hackerrankInString(str) {
+    let stringToFind = "hackerrank";
+    let foundIndexes = 0;
+    let i;
+    for (i = 0; i < str.length; i++) {
+        if (foundIndexes == stringToFind.length - 1) {
+            return "YES";
+        }
+
+        if (str[i] == stringToFind[foundIndexes]) {
+            foundIndexes++;
+        }
+    }
+
+    return "NO";
+}
+
+
 // Task 3
 function countingValleys(n, s) {
     let level = 0;

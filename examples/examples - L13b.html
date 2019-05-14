@@ -1,0 +1,156 @@
+<script>
+'use strict';
+
+function createRect(width, height) {
+	let rect = {
+		width: width,
+		height: height,
+		area: () => rect.width * rect.height,
+		compareTo: function(other) {
+			let result = other.area() - this.area();
+			return result || (other.width - this.width);
+		}
+	};
+	return rect;
+}
+
+function orderRects(rectsData) {
+	let rects = [];
+	for (let [width, height] of rectsData) {
+		let rect = createRect(width, height);
+		rects.push(rect);
+	}
+	rects.sort((a,b) => a.compareTo(b));
+	return rects;
+}
+
+console.log(orderRects([[3, 4], [5, 3], [3, 4], [3, 5], [12, 1]])[0]);
+///////////////////////////////////////////////////////////////////////////////
+
+class Rectangle {
+	constructor(width, height, color) {
+		this.width = width;
+		this.height = height;
+		this.color = color;
+	}
+}
+let redRect = new Rectangle(4, 5, 'red');
+let blueRect = new Rectangle(8, 3, 'blue');
+console.log(redRect, blueRect);
+/////////////////////////////////////////////////////////////
+
+class Person {
+	constructor(firstName, lastName, age, email) {
+		[this.firstName, this.lastName, this.age, this.email] = [firstName, lastName, age, email];
+	}
+	toString() {
+		return `${this.firstName} ${this.lastName} (age: ${this.age}, email: ${this.email})`;
+	}
+}
+
+function getPersons() {
+	return [
+		new Person('Maria', 'Ivanova', 24, 'mi@mail.bg'),
+		new Person('Dragan', '' , '', 'dragan@abv.bg'),
+		new Person('Vasil', 'vasilev', 26),
+		new Person('Petar', 'Dimitrov', 21, 'pesho@abv.bg'),
+	];
+}
+
+let persons = getPersons();
+////////////////////////////////////////////////////////////////
+
+class Circle {
+	constructor(radius) { this.radius = radius;}
+	get diameter() { return 2 * this.radius; }
+	set diameter(c) {
+		if (c < 0) {
+			throw new RangeError('Invalid Range');
+		}
+		this.radius = c / 2; 
+	}
+	get area() {
+		return Math.PI * this.radius * this.radius;
+	}
+}
+
+let c = new Circle(2);
+console.log(`Radius: ${c.radius}`); // 2
+console.log(`Diameter: ${c.diameter}`); // 4
+console.log(`Area: ${c.area}`); // 12.566370614359172
+
+class Point {
+	constructor(x, y) {
+		this.x = x;
+		this.y = y;
+	}
+	
+	static distance(a, b) {
+		const dx = a.x - b.x;
+		const dy = a.y - b.y;
+		return Math.sqrt(dx*dx + dy*dy);
+	}
+	
+	static test() {
+	}
+}
+let z = new Point(1, 2);
+console.log(z instanceof Point);
+console.log(Point.test());
+
+function sort(callback) {
+	callback(5, 6);
+}
+/////////////////////////////////////////////////////
+<!-- sort((a, b) => console.log(a, b)); -->
+<!-- sort((a, b) => document.write(a, b)); -->
+class Person {
+}
+
+class Teacher {
+	constructor(firstName, lastName) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+	
+	teach() {
+		console.log('Teaching...')
+	}
+	
+	get fullName() {
+		return `${this.firstName} ${this.lastName}`;
+	}
+}
+
+class Student {
+	constructor(firstName, lastName) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+
+	listen() {
+		console.log('Listening...')
+	}
+	
+	get fullName() {
+		return `${this.firstName} ${this.lastName}`;
+	}
+}
+
+class FrontEndJavaScript {
+	constructor(teacher, students) {
+		this.teacher = teacher;
+		this.students = students;
+	}
+	
+	printStudents() {
+		for (let name of this.students) {
+			console.log(name.fullName);
+		}
+	}
+}
+
+let teacher = new Teacher('Stiliyan', 'Ivanov');
+let students = [new Student('Pesho'), new Student('Gosho')];
+let course = new FrontEndJavaScript(teacher, students);
+</script>

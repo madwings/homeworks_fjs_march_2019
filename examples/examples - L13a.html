@@ -1,0 +1,115 @@
+<script>
+'use strict';
+
+if ( ! Array.prototype.indexOfCustom) {
+	Array.prototype.indexOfCustom = function(needle, strict, startIndex = 0) {
+		if (arguments.length < 2) {
+			throw Error('Insufficient number of arguments');
+		}
+		let result = -1;
+		for (let i = startIndex; i < this.length; ++i) {
+			if (strict === true && needle === this[i]) {
+				result = i;
+				break;
+			} else if (strict === false && needle == this[i]) {
+				result = i;
+				break;
+			}
+		}
+		
+		return result;
+	};
+}
+
+let array = [1,2,3,4];
+for (let x in array) {
+	if (array.hasOwnProperty(x)) {
+		console.log(x);
+	}
+}
+
+/////////////////////////
+function parseTownsToJSON(towns) {
+	let townsArr = [];
+	for (let town of towns.slice(1)) {
+		let [empty, townName, lat, lng] =
+		town.split(/\s*\|\s*/);
+		let townObj = { Town: townName, Latitude:
+		Number(lat), Longitude: Number(lng) };
+		townsArr.push(townObj);
+	}
+	
+	return JSON.stringify(townsArr);
+}
+console.log(2 ** 4);
+console.log(parseTownsToJSON(['|Town|Lat|Lng|', '|Sofia |42|23|']));
+
+/////////////////////////////////////////
+function buildPerson(finame, laname) {
+	return {
+		fname: finame,  
+		lname: laname,
+		toString: function Gosho() {
+			return this.fname + ' ' + this.lname;
+		}
+	};
+}
+let ivanov = buildPerson('Stiliyan', 'Ivanov');
+let georgiev = buildPerson('Georgi', 'Georgiev');
+
+console.log(ivanov.toString());
+console.log(georgiev.toString());
+
+//////////////////////////////////////////////////
+var marks = [
+	{ subject : 'JavaScript', score : 4.50 },
+	{ subject : 'OOP', score : 5.00 },
+	{ subject : 'HTML5', score : 6.00 },
+	{ subject : 'Photoshop', score : 4.00 }
+];
+
+function modifyStudent(student) {
+	student.marks[0].score = 5.5;
+}
+var student = {name: 'Stiliyan Ivanov', marks: marks};
+modifyStudent(student);
+//console.log(student);
+//console.log(student.marks);
+//console.log(student.marks); 
+
+//console.log(student.marks); 
+
+////////////////////////////////////////////////////////////
+let phonebook = new Map();
+phonebook.set("John Smith", {email: 'john@abv.bg', phone: '+1-555-1234'}); // Add
+phonebook.set("Lisa Smith","+1-555-1234");
+phonebook.set("Sam Doe", "+1-555-5030");
+phonebook.set("Ivan", "+359-899-555-592");
+phonebook.set("Ivan", "+359-2-981-9819"); // Replace
+console.log(phonebook.size); // 3
+for (let [key, value] of phonebook) { // Print
+	console.log(`${key} -> ${value}`);
+}
+
+let names = new Set();
+names.add("Peter"); 
+names.add(20);
+names.add("Maria"); 
+names.add(5);
+console.log(names.has('Peter')); // true
+names.add("Maria"); // Duplicates are skipped
+for (let name of names) { 
+	console.log(name);
+}
+
+function extractWords(inputSentences) {
+	let wordPattern = /\b[a-zA-Z0-9_]+\b/g;
+	let words = new Set();
+	for (let sentence of inputSentences) {
+		let matches = sentence.match(wordPattern);
+		matches.forEach(x => words.add(x.toLowerCase()));
+	}
+	console.log([...words.values()].join(", "));
+}
+extractWords(['JS and Node.js', 'JS again and again', 'Oh, JS?']);
+</script>
