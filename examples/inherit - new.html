@@ -1,0 +1,111 @@
+<html>
+	<head>
+		<script type="text/javascript">
+		"use strict";
+		class Animal {
+			constructor(age, weight) {
+				this.age = age;
+				this.weight = weight;
+				this.stick = "stick";
+			}
+
+			// method
+			breathe() {
+				console.log("I am breathing");
+			}
+			
+			// method
+			walk() {
+				console.log("I am walking");
+			}
+		}
+		
+		class Cat extends Animal {
+			// method
+			climb() {
+				console.log("I am climbing");
+			}
+		}
+		
+		class Dog extends Animal {
+			constructor(age, weight, isDangerous) {
+				super(age, weight);
+				this.isDangerous = isDangerous;
+			}
+
+			// method
+			bringStick() {
+				console.log("Bring stick");
+				console.log(super.stick);
+			}
+			
+			// getter
+			get role() {
+				return this.isDangerous;
+			}
+
+			// setter
+			set role(value) {
+				return this.isDangerous = value;
+			}
+		}
+		
+		class Bird extends Animal {
+			constructor(age, weight, flyingSpeed) {
+				super(age, weight);
+				this.flyingSpeed = flyingSpeed;
+			}
+
+			// method
+			fly() {
+				console.log("Flying");
+				//super.fly();
+			}
+			
+			// getter
+			get role() {
+				return this.flyingSpeed;
+			}
+
+			// setter
+			set role(value) {
+				return this.flyingSpeed = value;
+			}
+		}
+		
+		// Example usage:
+		console.log("Animal");
+		
+		var animal = new Animal(12, 5);
+		animal.breathe();   
+		animal.walk();
+		
+		console.log("Cat");
+		
+		var cat = new Cat(12, 5);
+		cat.breathe();   
+		cat.walk();
+		cat.climb();
+		
+		console.log("Dog");
+		
+		var dog = new Dog(12, 5, "yes");
+		dog.breathe();   
+		dog.walk();
+		dog.bringStick();
+		
+		console.log("Bird");
+		
+		var bird = new Bird(12, 5, 10);
+		bird.breathe();   
+		bird.walk();
+		bird.fly();
+		
+		// Check that instanceof works correctly
+		console.log(animal instanceof Animal);  // true 
+		console.log(cat instanceof Cat); // true
+		console.log(dog instanceof Dog); // true
+		console.log(bird instanceof Bird); // true
+		</script>
+	</head>
+</html>

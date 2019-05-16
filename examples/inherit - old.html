@@ -1,0 +1,126 @@
+<html>
+	<head>
+		<script type="text/javascript">
+		"use strict";
+		// Define the Animal constructor
+		function Animal(age, weight) {
+			this.age = age;
+			this.weight = weight;
+		}
+
+		// Add a couple of methods to Animal.prototype
+		Animal.prototype.walk = function() {
+			console.log("I am walking!");
+		};
+		Animal.prototype.breathe = function() {
+			console.log("Hello, I am breathing");
+		};
+		
+		Animal.prototype.test = 15;
+		
+
+		// Define the Cat constructor
+		function Cat(age, weight) {
+			// Call the parent constructor, making sure (using Function#call) that "this" is
+			// set correctly during the call
+			Animal.call(this, age, weight);
+		};
+
+		// Create a Cat.prototype object that inherits from Animal.prototype.
+		// Note: A common error here is to use "new Animal()" to create the Cat.prototype.
+		// That's incorrect for several reasons, not least that we don't have anything to
+		// give Animal for the arguments. The correct place to call Animal is
+		// above, where we call it from Cat.
+		Cat.prototype = Object.create(Animal.prototype); // See note below
+
+		// Set the "constructor" property to refer to Cat
+		Cat.prototype.constructor = Cat;
+
+		// Add a "climb" method
+		Cat.prototype.climb = function() {
+			console.log("Climbing");
+		};
+		
+		// Define the Dog constructor
+		function Dog(age, weight, isDangerous) {
+			// Call the parent constructor, making sure (using Function#call) that "this" is
+			// set correctly during the call
+			Animal.call(this, age, weight);
+			this.isDangerous = isDangerous;
+		};
+
+		// Create a Dog.prototype object that inherits from Animal.prototype.
+		// Note: A common error here is to use "new Animal()" to create the Dog.prototype.
+		// That's incorrect for several reasons, not least that we don't have anything to
+		// give Animal for the arguments. The correct place to call Animal is
+		// above, where we call it from Dog.
+		Dog.prototype = Object.create(Animal.prototype); // See note below
+
+		// Set the "constructor" property to refer to Dog
+		Dog.prototype.constructor = Dog;
+
+		// Add a "bringStick" method
+		Dog.prototype.bringStick = function() {
+			console.log("Bring stick!");
+		};
+		
+		// Define the Bird constructor
+		function Bird(age, weight, flyingSpeed) {
+			// Call the parent constructor, making sure (using Function#call) that "this" is
+			// set correctly during the call
+			Animal.call(this, age, weight);
+			this.flyingSpeed = flyingSpeed;
+			this.weight = "New Bird weight";
+		};
+
+		// Create a Bird.prototype object that inherits from Animal.prototype.
+		// Note: A common error here is to use "new Animal()" to create the Bird.prototype.
+		// That's incorrect for several reasons, not least that we don't have anything to
+		// give Animal for the arguments. The correct place to call Animal is
+		// above, where we call it from Bird.
+		Bird.prototype = Object.create(Animal.prototype); // See note below
+
+		// Set the "constructor" property to refer to Bird
+		Bird.prototype.constructor = Bird;
+
+		// Add a "fly" method
+		Bird.prototype.fly = function() {
+			console.log("Flying");
+		};
+		
+		Bird.prototype.test = "Bird";
+		// Example usage:
+		console.log("Animal");
+		
+		var animal = new Animal(12, 5);
+		animal.breathe();   
+		animal.walk();
+		
+		console.log("Cat");
+		
+		var cat = new Cat(12, 5);
+		cat.breathe();   
+		cat.walk();
+		cat.climb();
+		
+		console.log("Dog");
+		
+		var dog = new Dog(12, 5, "no");
+		dog.breathe();   
+		dog.walk();
+		dog.bringStick();
+		
+		console.log("Bird");
+		var bird = new Bird(12, 5, 10);
+		bird.breathe();   
+		bird.walk();
+		bird.fly();
+		
+		// Check that instanceof works correctly
+		console.log(animal instanceof Animal);  // true 
+		console.log(cat instanceof Cat); // true
+		console.log(dog instanceof Dog); // true
+		console.log(bird instanceof Animal); // true
+		</script>
+	</head>
+</html>

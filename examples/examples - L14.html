@@ -1,0 +1,84 @@
+<script>
+'use strict';
+
+class Person {
+	constructor(name, email) {
+		console.log(new.target === Teacher);
+		console.log('Person');
+		this.name = name; this.email = email;
+	}
+	
+	toString() {
+		let className = this.constructor.name;
+		return `${className} (name: ${this.name}, email: ${this.email})`;
+	}
+}
+
+class Teacher extends Person {
+	constructor(name, email, subject) {
+		console.log('Teacher');
+		super(name, email);
+		this.subject = subject;
+	}
+	
+	toString() {
+		let baseStr = super.toString().slice(0, -1);
+		return baseStr + `, subject: ${this.subject})`;
+	}
+}
+
+let t = new Teacher("Ivan", "iv@yahoo.com", "JS");
+console.log(t + ' Techer extends Person');
+
+function classHierarchy() {
+	class Figure {
+		constructor() {
+			if (new.target === Figure)
+			throw new Error("Cannot instantiate an abstract class.");
+		}
+		
+		get area() { 
+			return undefined; 
+		}
+		
+		toString() {
+			let type = this.constructor.name;
+			return type;
+		}
+	}
+	
+	class Circle extends Figure {
+		constructor(radius) {
+			super();
+			this.radius = radius;
+		}
+		
+		get area() {
+			return Math.PI * this.radius * this.radius;
+		}
+		
+		toString() {
+			return super.toString() + ` - radius: ${this.radius}`;
+		}
+	}
+	
+	class Rectangle extends Figure {
+		constructor(width, height) {
+			super();
+			[this.width, this.height] = [width, height];
+		}
+		
+		get area() { 
+			return this.width * this.height; 
+		}
+		
+		toString() {
+			return super.toString() + ` - width: ${this.width}, height: ${this.height}`;
+		}
+	}
+	return { Figure, Circle, Rectangle };
+}
+
+let classes = classHierarchy();
+let circle = new classes.Circle(5);
+</script>
