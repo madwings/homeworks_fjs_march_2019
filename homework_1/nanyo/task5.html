@@ -5,13 +5,19 @@
 </head>
 <body>
 <script>
-	let numbers = [1, 4, 5, 2, 3];
-	numbers.sort((a, b) => a - b);
-
-	let min = numbers[0] + numbers[1] + numbers[2] + numbers[3];
-	let max = numbers[4] + numbers[1] + numbers[2] + numbers[3];
+	let numbers = [
+		[1, 50, 100],
+		[5, 30, 34],
+		[4, 4000, 43]
+	];
+	let max = numbers[0][0];
+	for(let i = 0; i < numbers.length; i++) {
+		for(let j = 0; j < numbers[i].length; j++) {
+			if(numbers[i][j] > max)
+				max = numbers[i][j];
+		}
+	}
 	
-	console.log(min);
 	console.log(max);
 </script>
 </body>
