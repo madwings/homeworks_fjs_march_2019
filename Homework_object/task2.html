@@ -1,0 +1,18 @@
+<script>
+class Persone {
+	constructor(name, age) {
+		[this.name, this.age] = [name, age];
+	}
+	
+	toString() {
+		return `${this.name} ${this.age}`;
+	}
+}
+
+function printPersone(name, age) {
+	if(!Number.isNaN(+age) && typeof name == "string") {
+		let persone = new Persone(name, age);
+		console.log(persone.toString());
+	}
+}
+</script>
