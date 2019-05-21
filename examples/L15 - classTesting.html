@@ -1,0 +1,46 @@
+<script>
+"use strict";
+
+class SumCalculatorOutputter {
+    constructor(calculator) {
+        this.calculator = calculator;
+    }
+
+    JSON() {
+        let data = {
+            sum: this.calculator.sum(),
+        };
+
+        return JSON.stringify(data);
+    }
+
+    HTML() {
+        return '<h1>Sum of the areas of provided shapes: ' + this.calculator.sum() + '</h1>';
+    }
+}
+
+class MockCalculator {
+	constructor(sum) {
+        this.sum_value = sum;
+    }
+	sum() {
+		return this.sum_value;
+	}
+}
+
+class TestCalculator {
+	constructor() {
+		this.tests = [new SumCalculatorOutputter(new MockCalculator(5)), new SumCalculatorOutputter(new MockCalculator(6))]
+	}
+	
+	run() {
+		for (let test of this.tests) {
+			console.log(test.HTML() === '<h1>Sum of the areas of provided shapes: 5</h1>')
+		}
+	}
+	
+	
+}
+
+new TestCalculator().run();
+</script>
