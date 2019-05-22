@@ -28,12 +28,15 @@ class MockCalculator {
 	}
 }
 
-class TestCalculator {
+class TestSumCalculatorOutputter {
 	constructor() {
-		this.tests = [new SumCalculatorOutputter(new MockCalculator(5)), new SumCalculatorOutputter(new MockCalculator(6))]
+		this.tests = [
+            new SumCalculatorOutputter(new MockCalculator(5)), 
+            new SumCalculatorOutputter(new MockCalculator(6)),
+        ]
 	}
 	
-	run() {
+	testHTML() {
 		for (let test of this.tests) {
 			console.log(test.HTML() === '<h1>Sum of the areas of provided shapes: 5</h1>')
 		}
@@ -42,5 +45,5 @@ class TestCalculator {
 	
 }
 
-new TestCalculator().run();
+new TestSumCalculatorOutputter().testHTML();
 </script>
