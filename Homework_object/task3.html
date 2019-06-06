@@ -1,0 +1,18 @@
+<script>
+class Persone {
+	constructor(name) {
+		this.name = name;
+	}
+	
+	toString() {
+		return `${this.name} says \"Hello\"!`;
+	}
+}
+
+function printPersone(name) {
+	if(typeof name == "string") {
+		let persone = new Persone(name);
+		console.log(persone.toString());
+	}
+}
+</script>
