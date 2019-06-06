@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Task 5</title>
+</head>
+<body>
+<script>
+	let numbers = [
+		[1, 50, 100],
+		[5, 30, 34],
+		[4, 4000, 43]
+	];
+	let max = numbers[0][0];
+	for(let i = 0; i < numbers.length; i++) {
+		for(let j = 0; j < numbers[i].length; j++) {
+			if(numbers[i][j] > max)
+				max = numbers[i][j];
+		}
+	}
+
+	console.log(max);
+</script>
+</body>
+</html>

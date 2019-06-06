@@ -1,24 +1,26 @@
 'use strict';
 
 function isNumber(num) {
-    if (typeof(num) === 'number') {
+    if (Number.isNaN(num)) {
         return true;
+    } 
+    else {
+        const message = `${num} is not a number!`;
+        console.log(message);
+        return false;
     }
-    const message = `${num} is not a number!`;
-    console.log(message);
-    return false;
 }
 
 function isBetween(num1, num2, num3) {
-    if (((num3 > num1) && (num3 < num2)) || ((num3 < num1) && (num3 > num2))) {
+    if (((c > a) && (c < b)) || ((c < a) && (c > b))) {
         const message = `${num3} is between ${num1} and ${num2}`;
-        console.log(message);
     } else {
         const message = `${num3} is not between ${num1} and ${num2}`;
-        console.log(message);
     }
+    console.log(message);
 }
 
+// First task
 function firstTask() {
     const a = prompt('Please input A', 'Some number');
     const b = prompt('Please input B', 'Some number');
@@ -37,16 +39,16 @@ function firstTask() {
 // Second task
 
 function secondTask() {
-    const num1 = prompt('Please input A', 'Some number');
-    const num2 = prompt('Please input B', 'Some number');
+    let num1 = prompt('Please input A', 'Some number');
+    let num2 = prompt('Please input B', 'Some number');
+    
+    let a = parseInt(num1);
+    let b = parseInt(num2);
 
-    const a = parseInt(num1, 0);
-    const b = parseInt(num2, 0);
+    let sumResult = `Sum = ${a + b}`;
+    let subResult = `Substr = ${a - b}`;
+    let mulResult = `Multiplication = ${a * b}`;
+    let divResult = `Division = ${a % b}`;
 
-    const sumResult = `Sum = ${a + b}`;
-    const subResult = `Substr = ${a - b}`;
-    const mulResult = `Multiplication = ${a * b}`;
-    const divResult = `Division = ${a / b}`;
-
-    console.log(sumResult, subResult, mulResult, divResult);
+    console.log(sumResult, subResult, mulResult, divResult); 
 }

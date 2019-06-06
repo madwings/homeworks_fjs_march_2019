@@ -1,0 +1,174 @@
+<script>
+"use strict";
+
+class Shape {
+	constructor() {
+		if (new.target === Shape) {
+			throw new Error('Abstract Class');
+		}
+	}
+	
+	area() {
+		return undefined;
+	}
+}
+
+class Circle extends Shape {
+    constructor(radius) {
+		super();
+        this.radius = radius;
+    }
+
+	area() {
+		return Math.PI * (this.radius ** 2);
+	}
+}
+
+class Square extends Shape {
+    constructor(length) {
+		super();
+        this.length = length;
+    }
+	
+	area() {
+        return this.length ** 2;
+    }
+}
+
+
+class AreaCalculator {
+    constructor(shapes = []) {
+        this.shapes = shapes;
+    }
+
+    sum() {
+		let areas = []
+		/*
+		Violates 'O' from S.O.L.I.D
+		for (let shape of this.shapes) {
+			if (shape instanceof Square) {
+				areas.push(shape.length ** 2);
+			} else if (shape instanceof Circle) {
+				areas.push(Math.PI * (shape.radius ** 2));
+			}
+		}*/
+		
+		for (let shape of this.shapes) {
+			if (shape instanceof Shape) {
+				areas.push(shape.area());
+			} else {
+				console.error('Invalid Shape');
+			}
+		}
+		
+		let result = 0;
+		for (let area of areas) {
+			result += area;
+		}
+		
+		return result;
+    }
+
+    
+    /*
+	Violates 'S' from S.O.L.I.D
+	output() {
+        return [
+				"",
+				"Sum of the areas of provided shapes: ",
+                this.sum(),
+				"",
+		].join('');
+    }*/
+}
+
+class VolumeCalculator extends AreaCalculator {
+    sum() {
+		let areas = []
+		/*
+		Violates 'O' from S.O.L.I.D
+		for (let shape of this.shapes) {
+			if (shape instanceof Square) {
+				areas.push(shape.length ** 2);
+			} else if (shape instanceof Circle) {
+				areas.push(Math.PI * (shape.radius ** 2));
+			}
+		}*/
+		
+		for (let shape of this.shapes) {
+			if (shape instanceof Shape) {
+				areas.push(shape.area());
+			} else {
+				console.error('Invalid Shape');
+			}
+		}
+		
+		let result = 0;
+		for (let area of areas) {
+			result += area;
+		}
+		
+		return {sum: result};
+    }
+}
+
+class SumCalculatorOutputter {
+    constructor(calculator) {
+        this.calculator = calculator;
+    }
+
+    JSON() {
+        let data = {
+            sum: this.calculator.sum(),
+        };
+
+        return JSON.stringify(data);
+    }
+
+    HTML() {
+        return '<h1>Sum of the areas of provided shapes: ' + this.calculator.sum() + '</h1>';
+    }
+} 
+
+let shapes = [
+    new Circle(2),
+    new Square(5),
+    new Square(6),
+];
+
+let areas = new AreaCalculator(shapes);
+let volumes = new VolumeCalculator(shapes);
+let output = new SumCalculatorOutputter(areas);
+let output1 = new SumCalculatorOutputter(volumes);
+
+// Example of 'D' from S.O.L.I.D
+class Storage {
+	constructor() {
+		if (new.target === Storage) {
+			throw new Error('Abstract Class');
+		}
+	}
+
+	setItem() { return undefined };
+}
+
+class localStorageCustom extends Storage {
+    setItem() {
+        localStorage.setItem('myCat', 'Tom');
+    }
+}
+
+class sessionStorageCustom extends Storage {
+    setItem() {
+        sessionStorage.setItem('myCat', 'Tom');
+    }
+}
+
+class PasswordReminder {
+    constructor(storage) {
+		if (storage instanceof Storage) {
+			this.storage = storage;
+		}
+    }
+} 
+</script>
