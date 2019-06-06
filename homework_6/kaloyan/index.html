@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Homework 7</title>
+        <script defer src="./js/app.js"></script>
+        <link rel="stylesheet" href="./css/main.css" />
+        <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="load-screen">
+            <div class="loader">
+                <div class="circle"></div>
+                <div class="circle"></div>
+            </div>
+        </div>
+
+        <main class="main">
+            <header>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="#" class="nav-link">Home</a>
+                        </li>
+                        <li class="expand-list">
+                            <a href="#" class="nav-link">Products</a>
+                            <ul class="inner-list">
+                                <li>Phones</li>
+                                <li>Computers</li>
+                                <li>Tablets</li>
+                            </ul>
+                        </li>
+                        <li class="expand-list">
+                            <a href="#" class="nav-link">About</a>
+                            <ul class="inner-list">
+                                <li>The Company</li>
+                                <li>Our Products</li>
+                                <li>Something</li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <section>
+                <form id="register" onsubmit="return false">
+                    <div class="reg-form">
+                        <h4>Registration Form</h4>
+                        <div>
+                            <label for="name">Name</label>
+                            <input id="name" type="text" class="input-field" placeholder="e.g. John Targaryen" />
+                            <span id="sp-name"></span>
+                        </div>
+                        <div>
+                            <label for="user">User Name</label>
+                            <input id="user" type="text" class="input-field" placeholder="e.g. myUserName" />
+                            <span id="sp-user"></span>
+                        </div>
+                        <div>
+                            <label for="email">Email</label>
+                            <input id="email" type="mail" class="input-field" placeholder="e.g. John@mail.com" />
+                            <span id="sp-mail"></span>
+                        </div>
+                        <div>
+                            <label for="password">Password</label>
+                            <input id="password" type="password" class="input-field" placeholder="Create Password" />
+                            <span id="sp-password"></span>
+                        </div>
+                        <div>
+                            <label for="repPassword">Repeat Password</label>
+                            <input id="repPassword" type="password" class="input-field" placeholder="re-enter your Password" />
+                            <span id="sp-checkPass"></span>
+                        </div>
+                        <div>
+                            <input type="submit" value="Register" class="btn-reg" />
+                        </div>
+                    </div>
+                    <div class="reg-form-success">
+                        Registration Successful
+                    </div>
+                </form>
+
+                <div class="table-holder">
+                    <table>
+                        <tr>
+                            <td><input type="text" /></td>
+                            <td><input type="text" /></td>
+                            <td><input type="text" /></td>
+                            <td><input type="text" /></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" /></td>
+                            <td><input type="text" /></td>
+                            <td><input type="text" /></td>
+                            <td><input type="text" /></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" /></td>
+                            <td><input type="text" /></td>
+                            <td><input type="text" /></td>
+                            <td><input type="text" /></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" /></td>
+                            <td><input type="text" /></td>
+                            <td><input type="text" /></td>
+                            <td><input type="text" /></td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
