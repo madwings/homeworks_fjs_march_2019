@@ -5,8 +5,8 @@ $(document).ready(function() {
   let $newItemForm = $('#newItemForm');
   let $textInput = $('input:text');
   
-  $newItemButton.show();
-  $newItemForm.hide();
+  //$newItemButton.show();
+  //$newItemForm.hide();
 
   $('#showForm').on('click', function(){
     $newItemButton.hide();

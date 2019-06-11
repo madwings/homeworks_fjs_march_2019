@@ -222,8 +222,8 @@ a.show{
   left: 10px;}
 
 /* form example */
-#newItemButton {padding: 10px 20px 75px 20px; display: none;}
-#newItemForm {padding-top: 20px;}
+#newItemButton {padding: 10px 20px 75px 20px;}
+#newItemForm {padding-top: 20px; display: none;}
 #itemDescription {width: 360px;}
 #newItemForm input[type='submit'] {margin-top: 0; text-align: left;}
 
