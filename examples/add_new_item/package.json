@@ -1,0 +1,22 @@
+{
+    "name": "jsrenderTemplate",
+    "version": "1.0.0",
+    "description": "Using HTML templating engine",
+    "main": "index.js",
+    "scripts": {
+        "prod": "webpack --config webpack.prod.config.js",
+        "dev": "webpack --config webpack.dev.config.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "devDependencies": {
+        "webpack": "^4.33.0",
+        "webpack-cli": "^3.3.2",
+        "webpack-closure-compiler": "^2.1.6"
+    },
+    "dependencies": {
+        "jquery": "^3.4.1",
+        "jsrender": "^1.0.3"
+    }
+}

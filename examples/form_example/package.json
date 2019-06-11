@@ -1,0 +1,21 @@
+{
+    "name": "FormExample",
+    "version": "1.0.0",
+    "description": "Form Example",
+    "main": "index.js",
+    "scripts": {
+        "prod": "webpack --config webpack.prod.config.js",
+        "dev": "webpack --config webpack.dev.config.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "devDependencies": {
+        "webpack": "^4.33.0",
+        "webpack-cli": "^3.3.2",
+        "webpack-closure-compiler": "^2.1.6"
+    },
+    "dependencies": {
+        "jquery": "^3.4.1"
+    }
+}

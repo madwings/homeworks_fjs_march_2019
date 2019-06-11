@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript &amp; jQuery - Chapter 7: Introducing jQuery - Form elements WebPack</title>
+    <link rel="stylesheet" href="css/c07.css" />
+    <script src="js/form.js" defer></script>
+  </head>
+  <body>
+    <div id="page">
+      <h1 id="header">List</h1>
+      <h2>Buy groceries</h2>
+      <ul>
+        <li id="one" class="hot"><em>fresh</em> figs</li>
+        <li id="two" class="hot">pine nuts</li>
+        <li id="three" class="hot">honey</li>
+        <li id="four">balsamic vinegar</li>
+      </ul>
+      <div id="newItemButton"><button href="#" id="showForm">new item</button></div>
+      <form id="newItemForm">
+        <input type="text" id="itemDescription" placeholder="Add description..." />
+        <input type="submit" id="addButton" value="add" />
+      </form>
+    </div>
+	<script id="liTemplate" type="text/x-jsrender">
+		<li>{{:text}}</li>
+	</script>
+  </body>
+</html>
